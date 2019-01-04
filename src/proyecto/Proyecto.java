@@ -5,7 +5,6 @@ package proyecto;
 
 import java.util.ArrayList;
 import java.util.Date;
-import proyecto.Usuario;
 
 public class Proyecto {
     ArrayList<Usuario> usuarios = new ArrayList();
