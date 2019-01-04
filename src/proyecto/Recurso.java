@@ -2,7 +2,7 @@
 package proyecto;
 
 
-public abstract class Recurso {
+public abstract class Recurso implements Prestable{
     private int codigo;
     private String nombre;
     private String tipo;
