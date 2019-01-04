@@ -28,12 +28,20 @@ public class Proyecto {
     }
 
     public Usuario buscarUsuario(String rut) {
-        Usuario usu = new Usuario();
+        Usuario u = new Usuario();
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getRut().equals(rut)) {
-                usu = usuarios.get(i);
+                u = usuarios.get(i);
             }
         }
-        return usu;
+        return u;
+    }
+    
+    public void eliminarUsuario(String rut){
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getRut().equals(rut)){
+                usuarios.remove(usuarios.get(i));
+            }            
+        }
     }
 }

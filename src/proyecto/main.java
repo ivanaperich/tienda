@@ -14,8 +14,7 @@ public class main {
         login.setRegistro(registro);
         registro.setProyecto(proyecto);
         registro.setLogin(login);
-        login.setVisible(true);
-              
+        login.setVisible(true);              
         
     }
 }
