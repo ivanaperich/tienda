@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -154,6 +155,20 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         }
         return fecha;
 
+    }
+    
+    private int calculaEdad(Calendar fechaNac) {
+        Calendar today = Calendar.getInstance();
+
+        int difAños = today.get(Calendar.YEAR) -  fechaNac.get(Calendar.YEAR);
+        int difMeses = today.get(Calendar.MONTH) - fechaNac.get(Calendar.MONTH);
+        int diffDias = today.get(Calendar.DAY_OF_MONTH) - fechaNac.get(Calendar.DAY_OF_MONTH);
+
+        //Si está en ese año pero todavía no los ha cumplido
+        if (difMeses < 0 || (difMeses == 0 && diffDias < 0)) {
+            difAños = difAños - 1; 
+        }
+        return difAños;
     }
 
 }
