@@ -1,9 +1,22 @@
 
 package proyecto;
-import java.util.Date; 
+ 
+import java.time.LocalDateTime;
+
 
 public class Arriendo {
-    private Date fechaInicio; 
-    private Date fechaFin; 
+    private LocalDateTime fechaInicio; 
+    private LocalDateTime fechaFin; 
+    private double costo; 
+    private Prestable prestable; 
+
+    public Arriendo(double costo, Prestable objPrestable) {
+        this.prestable = objPrestable; 
+        this.costo = costo;
+        this.fechaInicio = LocalDateTime.now(); 
+        this.fechaFin = this.fechaInicio.plusDays(prestable.getDias());
+    }
+    
+    
     
 }
