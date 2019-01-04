@@ -4,16 +4,15 @@ package proyecto;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Proyecto {
-    ArrayList<Usuario> usuarios = new ArrayList();
+    ArrayList<UsuarioNormal> usuarios = new ArrayList();
 
     public Proyecto() {
     }
 
-    public void agregarUsuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, Date nacimiento, String tipo) {
-        usuarios.add(new Usuario(nombre, apellido, rut, edad, contraseña, correo, nacimiento, tipo));
+    public void agregarUsuario(UsuarioNormal usu) {
+        usuarios.add(usu);
     }
 
     public boolean login(String rut, String contraseña) {

@@ -2,39 +2,36 @@
 package proyecto;
 
 import java.awt.BorderLayout;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Tienda extends JFrame implements ActionListener {
 
-    ArrayList<Pelicula> peliculas = new ArrayList();
-    ArrayList<Videojuego> videojuegos = new ArrayList();
-    ArrayList<Libro> libros = new ArrayList();
+public class PanelAdmin extends JFrame implements ActionListener {
+    private Login login;
+    private Tienda tienda;
+    
     private JPanel panel;
     private JPanel panelNorte;
     private JPanel panelSur;
     private JButton btnLibro;
     private JButton btnPelicula;
     private JButton btnVideojuego;
-    private JButton btnBiblioteca;
+    
     private JButton btnCerrar;
 
     private JLabel lblBienvenido;
 
-    public Tienda() {
-
+    public PanelAdmin() {
         lblBienvenido = new JLabel("Bienvenido!");
 
-        btnLibro = new JButton("Arrendar Libro");
-        btnPelicula = new JButton("Arrendar Pelicula");
-        btnVideojuego = new JButton("Arrendar Videojuego");
-        btnBiblioteca = new JButton("Mi Biblioteca");
+        btnLibro = new JButton("Agregar Libro");
+        btnPelicula = new JButton("Agregar Pelicula");
+        btnVideojuego = new JButton("Agregar Videojuego");
+        
         btnCerrar = new JButton("Cerrar sesion");
 
         panel = new JPanel();
@@ -46,44 +43,31 @@ public class Tienda extends JFrame implements ActionListener {
         panel.add(btnLibro);
         panel.add(btnPelicula);
         panel.add(btnVideojuego);
-        panel.add(btnBiblioteca);
+        
 
-        this.setTitle("Tienda");
+        this.setTitle("Administrador");
         this.add(panel, BorderLayout.CENTER);
         this.add(panelNorte, BorderLayout.NORTH);
         this.add(panelSur, BorderLayout.SOUTH);
 
         this.setSize(600, 150);
         btnLibro.addActionListener(this);
-        btnLibro.setActionCommand("libro");
+        btnLibro.setActionCommand("agregarLibro");
         btnPelicula.addActionListener(this);
-        btnPelicula.setActionCommand("pelicula");
+        btnPelicula.setActionCommand("agregarPelicula");
         btnVideojuego.addActionListener(this);
-        btnVideojuego.setActionCommand("juego");
-        btnBiblioteca.addActionListener(this);
-        btnBiblioteca.setActionCommand("biblioteca");
+        btnVideojuego.setActionCommand("agregarJuego");        
         btnCerrar.addActionListener(this);
         btnCerrar.setActionCommand("cerrar");
 
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
 
     }
     
-    public void agregarPelicula (Pelicula p) {
-        peliculas.add(p);
-    }
     
-    public void agregarVideojuego (Videojuego v) {
-        videojuegos.add(v);
-    }
-    
-    public void agregarLibro (Libro l) {
-        libros.add(l);
-    }
-
 }

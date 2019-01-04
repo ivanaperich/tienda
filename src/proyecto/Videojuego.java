@@ -6,12 +6,11 @@
 package proyecto;
 
 
-public class Juego extends Recurso {
-    private String marca;
+public class Videojuego extends Recurso {
+    private String desarrollador;
 
-    public Juego(String marca, int codigo, String nombre, String tipo, boolean prestado) {
+    public Videojuego(String desarrollador, int codigo, String nombre, String tipo, boolean prestado) {
         super(codigo, nombre, tipo, prestado);
-        this.marca = marca;
+        this.desarrollador = desarrollador;
     }   
-    
 }

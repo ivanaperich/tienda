@@ -1,6 +1,4 @@
-
 package proyecto;
-
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -25,7 +23,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
     private JLabel lblRut;
     private JLabel lblNombre;
     private JLabel lblApellido;
-    private JLabel lblEdad;
+    
     private JLabel lblContraseña;
     private JLabel lblCorreo;
     private JLabel lblNacimiento;
@@ -33,7 +31,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
     private JTextField txtRut;
     private JTextField txtNombre;
     private JTextField txtApellido;
-    private JTextField txtEdad;
+    
     private JTextField txtContraseña;
     private JTextField txtCorreo;
     private JTextField txtNacimiento;
@@ -52,10 +50,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         txtNombre = new JTextField();
 
         lblApellido = new JLabel("APELLIDO: ");
-        txtApellido = new JTextField();
-
-        lblEdad = new JLabel("EDAD: ");
-        txtEdad = new JTextField();
+        txtApellido = new JTextField();        
 
         lblContraseña = new JLabel("CONTRASEÑA: ");
         txtContraseña = new JTextField();
@@ -69,7 +64,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         btnRegistrar = new JButton("Registrar");
         btnVolver = new JButton("Volver");
 
-        panel = new JPanel(new GridLayout(8, 2, 0, 0));
+        panel = new JPanel(new GridLayout(7, 2, 0, 0));
         panelSur = new JPanel();
 
         panelSur.add(btnRegistrar);
@@ -82,10 +77,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         panel.add(txtNombre);
 
         panel.add(lblApellido);
-        panel.add(txtApellido);
-
-        panel.add(lblEdad);
-        panel.add(txtEdad);
+        panel.add(txtApellido);    
 
         panel.add(lblContraseña);
         panel.add(txtContraseña);
@@ -111,8 +103,8 @@ public class RegistroUsuario extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getActionCommand().equals("registrar")) {
-            proyecto.agregarUsuario(txtNombre.getText(), txtApellido.getText(), txtRut.getText(), Integer.parseInt(txtEdad.getText()), txtContraseña.getText(), txtCorreo.getText(), formatoFecha(txtNacimiento.getText()),"normal");
+        if (ae.getActionCommand().equals("registrar")) {            
+            proyecto.agregarUsuario(new UsuarioNormal(txtNombre.getText(), txtApellido.getText(), txtRut.getText(), calculaEdad(formatoFecha(txtNacimiento.getText())), txtContraseña.getText(), txtCorreo.getText(), formatoFecha(txtNacimiento.getText())));
             JOptionPane.showMessageDialog(null, "Usuario creado", "Nuevo usuario", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
             this.setVisible(false);
@@ -141,7 +133,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         txtNacimiento.setText("");
     }
 
-    public Date formatoFecha(String strFecha) {
+    public Calendar formatoFecha(String strFecha) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date fecha = null;
         try {
@@ -153,20 +145,22 @@ public class RegistroUsuario extends JFrame implements ActionListener {
             ex.printStackTrace();
 
         }
-        return fecha;
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(fecha);
+        return cal;
 
     }
-    
+
     private int calculaEdad(Calendar fechaNac) {
         Calendar today = Calendar.getInstance();
 
-        int difAños = today.get(Calendar.YEAR) -  fechaNac.get(Calendar.YEAR);
+        int difAños = today.get(Calendar.YEAR) - fechaNac.get(Calendar.YEAR);
         int difMeses = today.get(Calendar.MONTH) - fechaNac.get(Calendar.MONTH);
         int diffDias = today.get(Calendar.DAY_OF_MONTH) - fechaNac.get(Calendar.DAY_OF_MONTH);
 
         //Si está en ese año pero todavía no los ha cumplido
         if (difMeses < 0 || (difMeses == 0 && diffDias < 0)) {
-            difAños = difAños - 1; 
+            difAños = difAños - 1;
         }
         return difAños;
     }

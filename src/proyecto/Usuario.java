@@ -2,7 +2,8 @@
 package proyecto;
 
 
-import java.util.Date;
+import java.util.Calendar;
+
 
 public class Usuario {
     private String nombre;
@@ -11,13 +12,13 @@ public class Usuario {
     private int edad;
     private String contraseña;
     private String correo;    
-    private Date nacimiento; 
-    private String tipo;
+    private Calendar nacimiento; 
+    private Boolean esAdmin;
 
     public Usuario() {
     }    
 
-    public Usuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, Date nacimiento, String tipo) {
+    public Usuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, Calendar nacimiento, Boolean esAdmin) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.rut = rut;
@@ -25,8 +26,8 @@ public class Usuario {
         this.contraseña = contraseña;
         this.correo = correo;
         this.nacimiento = nacimiento;
-        this.tipo = tipo;
-    }
+        this.esAdmin = esAdmin;
+    }    
 
     public String getNombre() {
         return nombre;
@@ -67,4 +68,30 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public Calendar getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(Calendar nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+    public Boolean getEsAdmin() {
+        return esAdmin;
+    }
+
+    public void setEsAdmin(Boolean esAdmin) {
+        this.esAdmin = esAdmin;
+    }
+    
+    
 }
