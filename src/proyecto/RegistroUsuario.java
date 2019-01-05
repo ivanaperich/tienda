@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,7 +23,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
     private JLabel lblRut;
     private JLabel lblNombre;
     private JLabel lblApellido;
-    
+
     private JLabel lblContraseña;
     private JLabel lblCorreo;
     private JLabel lblNacimiento;
@@ -31,7 +31,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
     private JTextField txtRut;
     private JTextField txtNombre;
     private JTextField txtApellido;
-    
+
     private JTextField txtContraseña;
     private JTextField txtCorreo;
     private JTextField txtNacimiento;
@@ -50,7 +50,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         txtNombre = new JTextField();
 
         lblApellido = new JLabel("APELLIDO: ");
-        txtApellido = new JTextField();        
+        txtApellido = new JTextField();
 
         lblContraseña = new JLabel("CONTRASEÑA: ");
         txtContraseña = new JTextField();
@@ -77,7 +77,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         panel.add(txtNombre);
 
         panel.add(lblApellido);
-        panel.add(txtApellido);    
+        panel.add(txtApellido);
 
         panel.add(lblContraseña);
         panel.add(txtContraseña);
@@ -103,7 +103,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getActionCommand().equals("registrar")) {            
+        if (ae.getActionCommand().equals("registrar")) {
             proyecto.agregarUsuario(new UsuarioNormal(txtNombre.getText(), txtApellido.getText(), txtRut.getText(), calculaEdad(formatoFecha(txtNacimiento.getText())), txtContraseña.getText(), txtCorreo.getText(), formatoFecha(txtNacimiento.getText())));
             JOptionPane.showMessageDialog(null, "Usuario creado", "Nuevo usuario", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
@@ -133,34 +133,23 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         txtNacimiento.setText("");
     }
 
-    public Calendar formatoFecha(String strFecha) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha = null;
-        try {
-
-            fecha = formato.parse(strFecha);
-
-        } catch (ParseException ex) {
-
-            ex.printStackTrace();
-
-        }
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(fecha);
-        return cal;
-
+    public LocalDateTime formatoFecha(String strFecha) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        LocalDateTime fecha = LocalDateTime.parse(strFecha, formato);     
+        
+        return fecha;
     }
 
-    private int calculaEdad(Calendar fechaNac) {
-        Calendar today = Calendar.getInstance();
+    private int calculaEdad(LocalDateTime fechaNac) {
+        LocalDateTime today = LocalDateTime.now();
 
-        int difAños = today.get(Calendar.YEAR) - fechaNac.get(Calendar.YEAR);
-        int difMeses = today.get(Calendar.MONTH) - fechaNac.get(Calendar.MONTH);
-        int diffDias = today.get(Calendar.DAY_OF_MONTH) - fechaNac.get(Calendar.DAY_OF_MONTH);
+        int difAños = today.getYear() - fechaNac.getYear();
+        int difMeses = today.getMonthValue() - fechaNac.getMonthValue();
+        int diffDias = today.getDayOfMonth() - fechaNac.getDayOfMonth();
 
-        //Si está en ese año pero todavía no los ha cumplido
+        
         if (difMeses < 0 || (difMeses == 0 && diffDias < 0)) {
-            difAños = difAños - 1;
+            difAños--;
         }
         return difAños;
     }

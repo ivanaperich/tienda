@@ -2,7 +2,8 @@
 package proyecto;
 
 
-import java.util.Calendar;
+import java.time.LocalDateTime;
+
 
 
 public class Usuario {
@@ -12,13 +13,13 @@ public class Usuario {
     private int edad;
     private String contraseña;
     private String correo;    
-    private Calendar nacimiento; 
+    private LocalDateTime nacimiento; 
     private Boolean esAdmin;
 
     public Usuario() {
     }    
 
-    public Usuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, Calendar nacimiento, Boolean esAdmin) {
+    public Usuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, LocalDateTime nacimiento, Boolean esAdmin) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.rut = rut;
@@ -75,15 +76,7 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public Calendar getNacimiento() {
-        return nacimiento;
-    }
-
-    public void setNacimiento(Calendar nacimiento) {
-        this.nacimiento = nacimiento;
-    }
+    }    
 
     public Boolean getEsAdmin() {
         return esAdmin;
@@ -92,6 +85,16 @@ public class Usuario {
     public void setEsAdmin(Boolean esAdmin) {
         this.esAdmin = esAdmin;
     }
+
+    public LocalDateTime getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(LocalDateTime nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+    
+    
     
     
 }
