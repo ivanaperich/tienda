@@ -6,12 +6,12 @@ package proyecto;
 import java.util.ArrayList;
 
 public class Proyecto {
-    ArrayList<UsuarioNormal> usuarios = new ArrayList();
+    ArrayList<Usuario> usuarios = new ArrayList();
 
     public Proyecto() {
     }
 
-    public void agregarUsuario(UsuarioNormal usu) {
+    public void agregarUsuario(Usuario usu) {
         usuarios.add(usu);
     }
 

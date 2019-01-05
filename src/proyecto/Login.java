@@ -1,6 +1,4 @@
-
 package proyecto;
-
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -18,6 +16,8 @@ public class Login extends JFrame implements ActionListener {
 
     private Proyecto proyecto;
     private RegistroUsuario registro;
+    private Tienda tienda;
+    private PanelAdmin admin;
     private JButton btnIngresar;
     private JButton btnRegistrar;
 
@@ -31,8 +31,8 @@ public class Login extends JFrame implements ActionListener {
     private JPanel panelSur;
 
     public Login() {
-        
-        panel = new JPanel(new GridLayout(2, 2, 0, 0));
+
+        panel = new JPanel(new GridLayout(2, 2));
         panelSur = new JPanel(new GridLayout(1, 2));
 
         lblRut = new JLabel("Rut (sin puntos ni guion): ");
@@ -48,7 +48,7 @@ public class Login extends JFrame implements ActionListener {
 
         panel.add(lblContraseña);
         panel.add(txtContraseña);
-        
+
         panelSur.add(btnRegistrar);
         panelSur.add(btnIngresar);
 
@@ -57,7 +57,7 @@ public class Login extends JFrame implements ActionListener {
         this.add(panelSur, BorderLayout.SOUTH);
         this.setSize(300, 120);
         btnIngresar.addActionListener(this);
-        btnRegistrar.addActionListener(this);        
+        btnRegistrar.addActionListener(this);
         btnIngresar.setActionCommand("ingresar");
         btnRegistrar.setActionCommand("registrar");
 
@@ -70,16 +70,28 @@ public class Login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("ingresar")) {
             if (proyecto.login(txtRut.getText(), txtContraseña.getText())) {
-                new Tienda().setVisible(true);
-                this.setVisible(false);
+                if (proyecto.buscarUsuario(txtRut.getText()).getEsAdmin()) {
+                    admin.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    tienda.setVisible(true);
+                    this.setVisible(false);
+                }
+                limpiarDatos();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrecto(s)", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         } else if (ae.getActionCommand().equals("registrar")) {
             registro.setVisible(true);
             this.setVisible(false);
-            
+
         }
+    }
+    
+    public void limpiarDatos() {
+        txtRut.setText("");
+        txtContraseña.setText("");
+              
     }
 
     public void setProyecto(Proyecto proyecto) {
@@ -89,8 +101,15 @@ public class Login extends JFrame implements ActionListener {
     public void setRegistro(RegistroUsuario registro) {
         this.registro = registro;
     }
+
+    public void setTienda(Tienda tienda) {
+        this.tienda = tienda;
+    }
+
+    public void setAdmin(PanelAdmin admin) {
+        this.admin = admin;
+    }
     
     
-    
-    
+
 }

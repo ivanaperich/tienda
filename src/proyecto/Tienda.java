@@ -72,6 +72,16 @@ public class Tienda extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getActionCommand().equals("libro")) {
+            
+        } else if (ae.getActionCommand().equals("pelicula")) {
+            
+        } else if (ae.getActionCommand().equals("juego")) {
+            ;
+        } else if (ae.getActionCommand().equals("cerrar")) {
+            login.setVisible(true);
+            this.setVisible(false);
+        }
 
     }
     
@@ -86,5 +96,11 @@ public class Tienda extends JFrame implements ActionListener {
     public void agregarLibro (Libro l) {
         libros.add(l);
     }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+    
+    
 
 }

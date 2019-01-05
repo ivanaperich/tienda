@@ -6,8 +6,8 @@ public class Pelicula extends Recurso {
     
     private String genero;
 
-    public Pelicula(String genero, int codigo, String nombre, String tipo, boolean prestado) {
-        super(codigo, nombre, tipo, prestado);
+    public Pelicula(String genero, int codigo, String nombre, String tipo) {
+        super(codigo, nombre, tipo, false);
         this.genero = genero;
     }    
 }

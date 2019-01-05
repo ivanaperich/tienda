@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class PanelAdmin extends JFrame implements ActionListener {
 
-    private Login login;   
+    private Login login;  
+    private AgregarPelicula agregarPelicula;
+    private AgregarLibro agregarLibro;
+    private AgregarVideojuego agregarVideojuego;
 
     private JPanel panel;
     private JPanel panelNorte;
@@ -54,7 +56,7 @@ public class PanelAdmin extends JFrame implements ActionListener {
         btnPelicula.addActionListener(this);
         btnPelicula.setActionCommand("agregarPelicula");
         btnVideojuego.addActionListener(this);
-        btnVideojuego.setActionCommand("agregarJuego");
+        btnVideojuego.setActionCommand("agregarVideojuego");
         btnCerrar.addActionListener(this);
         btnCerrar.setActionCommand("cerrar");
 
@@ -65,15 +67,38 @@ public class PanelAdmin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregarLibro")) {
-
+            agregarLibro.setVisible(true);
+            this.setVisible(false);
         } else if (ae.getActionCommand().equals("agregarPelicula")) {
-
-        } else if (ae.getActionCommand().equals("agregarJuego")) {
-
+            agregarPelicula.setVisible(true);
+            this.setVisible(false);
+        } else if (ae.getActionCommand().equals("agregarVideojuego")) {
+            agregarVideojuego.setVisible(true);
+            this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {
             login.setVisible(true);
             this.setVisible(false);
         }
     }
+
+    public void setAgregarPelicula(AgregarPelicula agregarPelicula) {
+        this.agregarPelicula = agregarPelicula;
+    }
+
+    public void setAgregarLibro(AgregarLibro agregarLibro) {
+        this.agregarLibro = agregarLibro;
+    }
+
+    public void setAgregarVideojuego(AgregarVideojuego agregarVideojuego) {
+        this.agregarVideojuego = agregarVideojuego;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+    
+    
+    
+    
 
 }
