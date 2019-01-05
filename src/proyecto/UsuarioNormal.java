@@ -1,13 +1,13 @@
 
 package proyecto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 
 public class UsuarioNormal extends Usuario {
 
-    public UsuarioNormal(String nombre, String apellido, String rut, int edad, String contraseña, String correo, LocalDateTime nacimiento) {
+    public UsuarioNormal(String nombre, String apellido, String rut, int edad, String contraseña, String correo, LocalDate nacimiento) {
         super(nombre, apellido, rut, edad, contraseña, correo, nacimiento, false);
     }
     

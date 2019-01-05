@@ -3,14 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Proyecto.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Pelicula.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Tienda.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Libro.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Arriendo.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Juego.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Usuario.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/Proyecto/src/proyecto/Recurso.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Arriendo.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/RegistroUsuario.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Tienda.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Usuario.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Prestable.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Login.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/main.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/AgregarPelicula.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Pelicula.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Proyecto.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/AgregarLibro.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/PanelAdmin.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Recurso.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Admin.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/AgregarVideojuego.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Libro.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/Videojuego.java</file>
+            <file>file:/C:/Users/Cristobal1/Desktop/tienda/src/proyecto/UsuarioNormal.java</file>
         </group>
     </open-files>
 </project-private>

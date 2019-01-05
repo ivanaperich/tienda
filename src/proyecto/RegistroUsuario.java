@@ -4,9 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -133,15 +131,15 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         txtNacimiento.setText("");
     }
 
-    public LocalDateTime formatoFecha(String strFecha) {
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        LocalDateTime fecha = LocalDateTime.parse(strFecha, formato);     
+    public LocalDate formatoFecha(String strFecha) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fecha = LocalDate.parse(strFecha, formato);     
         
         return fecha;
     }
 
-    private int calculaEdad(LocalDateTime fechaNac) {
-        LocalDateTime today = LocalDateTime.now();
+    private int calculaEdad(LocalDate fechaNac) {
+        LocalDate today = LocalDate.now();
 
         int difAños = today.getYear() - fechaNac.getYear();
         int difMeses = today.getMonthValue() - fechaNac.getMonthValue();

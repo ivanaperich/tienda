@@ -2,7 +2,8 @@
 package proyecto;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 
 
@@ -13,13 +14,13 @@ public class Usuario {
     private int edad;
     private String contraseña;
     private String correo;    
-    private LocalDateTime nacimiento; 
+    private LocalDate nacimiento; 
     private Boolean esAdmin;
 
     public Usuario() {
     }    
 
-    public Usuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, LocalDateTime nacimiento, Boolean esAdmin) {
+    public Usuario(String nombre, String apellido, String rut, int edad, String contraseña, String correo, LocalDate nacimiento, Boolean esAdmin) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.rut = rut;
@@ -86,11 +87,11 @@ public class Usuario {
         this.esAdmin = esAdmin;
     }
 
-    public LocalDateTime getNacimiento() {
+    public LocalDate getNacimiento() {
         return nacimiento;
     }
 
-    public void setNacimiento(LocalDateTime nacimiento) {
+    public void setNacimiento(LocalDate nacimiento) {
         this.nacimiento = nacimiento;
     }
     
