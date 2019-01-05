@@ -16,6 +16,7 @@ public class Tienda extends JFrame implements ActionListener {
     ArrayList<Pelicula> peliculas = new ArrayList();
     ArrayList<Videojuego> videojuegos = new ArrayList();
     ArrayList<Libro> libros = new ArrayList();
+    private Login login;   
     private JPanel panel;
     private JPanel panelNorte;
     private JPanel panelSur;

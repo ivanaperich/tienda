@@ -1,4 +1,3 @@
-
 package proyecto;
 
 import java.awt.BorderLayout;
@@ -7,20 +6,20 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 public class PanelAdmin extends JFrame implements ActionListener {
-    private Login login;
-    private Tienda tienda;
-    
+
+    private Login login;   
+
     private JPanel panel;
     private JPanel panelNorte;
     private JPanel panelSur;
     private JButton btnLibro;
     private JButton btnPelicula;
     private JButton btnVideojuego;
-    
+
     private JButton btnCerrar;
 
     private JLabel lblBienvenido;
@@ -31,7 +30,7 @@ public class PanelAdmin extends JFrame implements ActionListener {
         btnLibro = new JButton("Agregar Libro");
         btnPelicula = new JButton("Agregar Pelicula");
         btnVideojuego = new JButton("Agregar Videojuego");
-        
+
         btnCerrar = new JButton("Cerrar sesion");
 
         panel = new JPanel();
@@ -43,7 +42,6 @@ public class PanelAdmin extends JFrame implements ActionListener {
         panel.add(btnLibro);
         panel.add(btnPelicula);
         panel.add(btnVideojuego);
-        
 
         this.setTitle("Administrador");
         this.add(panel, BorderLayout.CENTER);
@@ -56,18 +54,26 @@ public class PanelAdmin extends JFrame implements ActionListener {
         btnPelicula.addActionListener(this);
         btnPelicula.setActionCommand("agregarPelicula");
         btnVideojuego.addActionListener(this);
-        btnVideojuego.setActionCommand("agregarJuego");        
+        btnVideojuego.setActionCommand("agregarJuego");
         btnCerrar.addActionListener(this);
         btnCerrar.setActionCommand("cerrar");
 
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getActionCommand().equals("agregarLibro")) {
 
+        } else if (ae.getActionCommand().equals("agregarPelicula")) {
+
+        } else if (ae.getActionCommand().equals("agregarJuego")) {
+
+        } else if (ae.getActionCommand().equals("cerrar")) {
+            login.setVisible(true);
+            this.setVisible(false);
+        }
     }
-    
-    
+
 }
