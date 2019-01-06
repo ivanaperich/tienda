@@ -102,7 +102,8 @@ public class RegistroUsuario extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("registrar")) {
-            proyecto.agregarUsuario(new UsuarioNormal(txtNombre.getText(), txtApellido.getText(), txtRut.getText(), calculaEdad(formatoFecha(txtNacimiento.getText())), txtContraseña.getText(), txtCorreo.getText(), formatoFecha(txtNacimiento.getText())));
+            UsuarioNormal usu = new UsuarioNormal(txtNombre.getText(), txtApellido.getText(), txtRut.getText(), calculaEdad(formatoFecha(txtNacimiento.getText())), txtContraseña.getText(), txtCorreo.getText(), formatoFecha(txtNacimiento.getText()));
+            proyecto.agregarUsuario(usu);
             JOptionPane.showMessageDialog(null, "Usuario creado", "Nuevo usuario", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
             this.setVisible(false);

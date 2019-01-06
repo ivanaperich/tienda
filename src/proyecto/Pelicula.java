@@ -10,4 +10,10 @@ public class Pelicula extends Recurso {
         super(codigo, nombre, tipo, false);
         this.genero = genero;
     }    
+
+    public String getGenero() {
+        return genero;
+    }
+    
+    
 }

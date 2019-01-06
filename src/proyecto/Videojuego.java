@@ -13,4 +13,10 @@ public class Videojuego extends Recurso {
         super(codigo, nombre, tipo, false);
         this.desarrollador = desarrollador;
     }   
+
+    public String getDesarrollador() {
+        return desarrollador;
+    }
+    
+    
 }

@@ -9,6 +9,10 @@ public class Libro extends Recurso {
         this.autor = autor;
     }
 
+    public String getAutor() {
+        return autor;
+    }
+
     
     
 }

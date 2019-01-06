@@ -12,6 +12,7 @@ public class main {
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
         Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);
         
+        
         Tienda tienda = new Tienda();
         Proyecto proyecto = new Proyecto();
         Login login = new Login();
@@ -20,7 +21,11 @@ public class main {
         AgregarLibro agregarLibro = new AgregarLibro();
         AgregarPelicula agregarPelicula = new AgregarPelicula();
         AgregarVideojuego agregarVideojuego = new AgregarVideojuego();
-        proyecto.agregarUsuario(usuAdmin);
+        ArrendarLibro arrendarLibro = new ArrendarLibro();
+        ArrendarPelicula arrendarPelicula = new ArrendarPelicula();
+        ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego();
+        
+        proyecto.agregarUsuario(usuAdmin);        
         login.setProyecto(proyecto);
         login.setRegistro(registro);
         login.setAdmin(admin);
@@ -40,8 +45,14 @@ public class main {
         agregarPelicula.setAdmin(admin);
         agregarVideojuego.setTienda(tienda);
         agregarVideojuego.setAdmin(admin);
+        arrendarLibro.setTienda(tienda);
+        arrendarPelicula.setTienda(tienda);
+        arrendarVideojuego.setTienda(tienda);
         
         tienda.setLogin(login);
+        tienda.setArrendarLibro(arrendarLibro);
+        tienda.setArrendarPelicula(arrendarPelicula);
+        tienda.setArrendarVideojuego(arrendarVideojuego);
         login.setVisible(true);              
         
     }

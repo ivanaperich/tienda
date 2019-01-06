@@ -17,6 +17,9 @@ public class Tienda extends JFrame implements ActionListener {
     ArrayList<Videojuego> videojuegos = new ArrayList();
     ArrayList<Libro> libros = new ArrayList();
     private Login login;   
+    private ArrendarLibro arrendarLibro;
+    private ArrendarPelicula arrendarPelicula;
+    private ArrendarVideojuego arrendarVideojuego;
     private JPanel panel;
     private JPanel panelNorte;
     private JPanel panelSur;
@@ -60,7 +63,7 @@ public class Tienda extends JFrame implements ActionListener {
         btnPelicula.addActionListener(this);
         btnPelicula.setActionCommand("pelicula");
         btnVideojuego.addActionListener(this);
-        btnVideojuego.setActionCommand("juego");
+        btnVideojuego.setActionCommand("videojuego");
         btnBiblioteca.addActionListener(this);
         btnBiblioteca.setActionCommand("biblioteca");
         btnCerrar.addActionListener(this);
@@ -73,11 +76,17 @@ public class Tienda extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("libro")) {
-            
+            arrendarLibro.setInformacion();
+            arrendarLibro.setVisible(true);
+            this.setVisible(false);
         } else if (ae.getActionCommand().equals("pelicula")) {
-            
-        } else if (ae.getActionCommand().equals("juego")) {
-            ;
+            arrendarPelicula.setInformacion();
+            arrendarPelicula.setVisible(true);
+            this.setVisible(false);
+        } else if (ae.getActionCommand().equals("videojuego")) {
+            arrendarVideojuego.setInformacion();
+            arrendarVideojuego.setVisible(true);
+            this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {
             login.setVisible(true);
             this.setVisible(false);
@@ -100,6 +109,36 @@ public class Tienda extends JFrame implements ActionListener {
     public void setLogin(Login login) {
         this.login = login;
     }
+
+    public ArrayList<Pelicula> getPeliculas() {
+        return peliculas;
+    }
+
+    public ArrayList<Videojuego> getVideojuegos() {
+        return videojuegos;
+    }
+
+    public ArrayList<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setArrendarLibro(ArrendarLibro arrendarLibro) {
+        this.arrendarLibro = arrendarLibro;
+    }
+
+    public void setArrendarPelicula(ArrendarPelicula arrendarPelicula) {
+        this.arrendarPelicula = arrendarPelicula;
+    }
+
+    public void setArrendarVideojuego(ArrendarVideojuego arrendarVideojuego) {
+        this.arrendarVideojuego = arrendarVideojuego;
+    }
+    
+    
+    
+    
+    
+    
     
     
 
