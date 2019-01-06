@@ -53,6 +53,7 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
     }
 
     public void setInformacion() {
+        model.setRowCount(0);
         List<Pelicula> peliculas = tienda.getPeliculas();
         for (int i = 0; i < peliculas.size(); i++) {
             Object[] data = new Object[4];

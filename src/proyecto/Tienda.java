@@ -1,4 +1,3 @@
-
 package proyecto;
 
 import java.awt.BorderLayout;
@@ -17,7 +16,8 @@ public class Tienda extends JFrame implements ActionListener {
     ArrayList<Videojuego> videojuegos = new ArrayList();
     ArrayList<Libro> libros = new ArrayList();
     ArrayList<Prestable> inventario = new ArrayList();
-    private Login login;   
+    private Usuario usuActual;
+    private Login login;
     private ArrendarLibro arrendarLibro;
     private ArrendarPelicula arrendarPelicula;
     private ArrendarVideojuego arrendarVideojuego;
@@ -34,8 +34,6 @@ public class Tienda extends JFrame implements ActionListener {
 
     public Tienda() {
 
-        lblBienvenido = new JLabel("Bienvenido!");
-
         btnLibro = new JButton("Arrendar Libro");
         btnPelicula = new JButton("Arrendar Pelicula");
         btnVideojuego = new JButton("Arrendar Videojuego");
@@ -46,7 +44,6 @@ public class Tienda extends JFrame implements ActionListener {
         panelNorte = new JPanel();
         panelSur = new JPanel();
 
-        panelNorte.add(lblBienvenido);
         panelSur.add(btnCerrar);
         panel.add(btnLibro);
         panel.add(btnPelicula);
@@ -77,42 +74,53 @@ public class Tienda extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("libro")) {
-            
+
             arrendarLibro.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("pelicula")) {
-            
+
             arrendarPelicula.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("videojuego")) {
-            
+
             arrendarVideojuego.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {
+            panelNorte.removeAll();
             login.setVisible(true);
             this.setVisible(false);
         }
 
     }
-    
-    public void agregarPelicula (Pelicula p) {
+
+    public void agregarPelicula(Pelicula p) {
         peliculas.add(p);
-        inventario.add(p); 
+        inventario.add(p);
     }
-    
-    public void agregarVideojuego (Videojuego v) {
+
+    public void agregarVideojuego(Videojuego v) {
         videojuegos.add(v);
-        inventario.add(v); 
+        inventario.add(v);
     }
-    
-    public void agregarLibro (Libro l) {
+
+    public void agregarLibro(Libro l) {
         libros.add(l);
-        inventario.add(l); 
+        inventario.add(l);
     }
 
     public void setLogin(Login login) {
         this.login = login;
     }
+
+    public void setUsuActual(Usuario usuActual) {
+        this.usuActual = usuActual;
+        lblBienvenido = new JLabel("Bienvenido(a) " + usuActual.getNombre() + " " + usuActual.getApellido() + "!");
+        panelNorte.add(lblBienvenido);
+    }
+
+    public Usuario getUsuActual() {
+        return usuActual;
+    }   
 
     public ArrayList<Pelicula> getPeliculas() {
         return peliculas;
@@ -137,13 +145,5 @@ public class Tienda extends JFrame implements ActionListener {
     public void setArrendarVideojuego(ArrendarVideojuego arrendarVideojuego) {
         this.arrendarVideojuego = arrendarVideojuego;
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
 }

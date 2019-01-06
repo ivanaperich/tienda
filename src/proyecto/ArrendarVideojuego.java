@@ -53,6 +53,7 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
     }
 
     public void setInformacion() {
+        model.setRowCount(0);
         List<Videojuego> videojuegos = tienda.getVideojuegos();
         for (int i = 0; i < videojuegos.size(); i++) {
             Object[] data = new Object[4];

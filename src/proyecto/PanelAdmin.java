@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 public class PanelAdmin extends JFrame implements ActionListener {
 
     private Login login;  
+    private Usuario usuActual;
     private AgregarPelicula agregarPelicula;
     private AgregarLibro agregarLibro;
     private AgregarVideojuego agregarVideojuego;
@@ -26,8 +27,7 @@ public class PanelAdmin extends JFrame implements ActionListener {
 
     private JLabel lblBienvenido;
 
-    public PanelAdmin() {
-        lblBienvenido = new JLabel("Bienvenido!");
+    public PanelAdmin() {      
 
         btnLibro = new JButton("Agregar Libro");
         btnPelicula = new JButton("Agregar Pelicula");
@@ -38,8 +38,7 @@ public class PanelAdmin extends JFrame implements ActionListener {
         panel = new JPanel();
         panelNorte = new JPanel();
         panelSur = new JPanel();
-
-        panelNorte.add(lblBienvenido);
+        
         panelSur.add(btnCerrar);
         panel.add(btnLibro);
         panel.add(btnPelicula);
@@ -76,6 +75,7 @@ public class PanelAdmin extends JFrame implements ActionListener {
             agregarVideojuego.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {
+            panelNorte.removeAll();
             login.setVisible(true);
             this.setVisible(false);
         }
@@ -97,7 +97,11 @@ public class PanelAdmin extends JFrame implements ActionListener {
         this.login = login;
     }
     
-    
+    public void setUsuActual(Usuario usuActual) {
+        this.usuActual = usuActual;
+        lblBienvenido = new JLabel("Bienvenido(a) " + usuActual.getNombre() + " " + usuActual.getApellido() + "!");
+        panelNorte.add(lblBienvenido);
+    }
     
     
 

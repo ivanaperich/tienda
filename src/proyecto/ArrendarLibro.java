@@ -30,7 +30,8 @@ public class ArrendarLibro extends JFrame implements ActionListener {
         String titulos[] = {"CODIGO", "NOMBRE", "AUTOR", "PRESTADO"};
         Object[][] datos = {};
         tabla = new JTable(new DefaultTableModel(datos, titulos));
-        tabla.setEnabled(false);
+        tabla.setEnabled(false);    
+        
         model = (DefaultTableModel) tabla.getModel();
         panelSur = new JPanel();
 
@@ -52,8 +53,11 @@ public class ArrendarLibro extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+     
 
     public void setInformacion() {
+        model.setRowCount(0);
         List<Libro> libros = tienda.getLibros();
         for (int i = 0; i < libros.size(); i++) {
             Object[] data = new Object[4];
@@ -62,6 +66,7 @@ public class ArrendarLibro extends JFrame implements ActionListener {
             data[2] = libros.get(i).getAutor();
             data[3] = libros.get(i).isPrestado();
             model.addRow(data);
+           
         }
         tabla.setModel(model);
     }

@@ -10,8 +10,7 @@ public class main {
     public static void main(String[] args) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
-        Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);
-        
+        Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);        
         
         Tienda tienda = new Tienda();
         Proyecto proyecto = new Proyecto();

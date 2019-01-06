@@ -70,10 +70,13 @@ public class Login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("ingresar")) {
             if (proyecto.login(txtRut.getText(), txtContraseña.getText())) {
-                if (proyecto.buscarUsuario(txtRut.getText()).getEsAdmin()) {
+                Usuario usuActual = proyecto.buscarUsuario(txtRut.getText());
+                if (usuActual.getEsAdmin()) {
+                    admin.setUsuActual(usuActual);
                     admin.setVisible(true);
                     this.setVisible(false);
                 } else {
+                    tienda.setUsuActual(usuActual);
                     tienda.setVisible(true);
                     this.setVisible(false);
                 }
