@@ -76,7 +76,7 @@ public class AgregarLibro extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
-            tienda.agregarLibro(new Libro(txtAutor.getText(), Integer.parseInt(txtCodigo.getText()), txtNombre.getText(), "Libro"));
+            tienda.agregarLibro(new Libro(txtAutor.getText(), (tienda.inventario.size()+1), txtNombre.getText(), "Libro"));
             arrendarLibro.setInformacion();
             JOptionPane.showMessageDialog(null, "Libro agregado", "Nuevo Libro", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
