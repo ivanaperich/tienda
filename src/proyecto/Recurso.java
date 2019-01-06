@@ -8,6 +8,7 @@ public abstract class Recurso implements Prestable{
     private String tipo;
     private boolean prestado; 
     protected int dias; 
+    protected int costo; 
 
     public Recurso(int codigo, String nombre, String tipo, boolean prestado) {
         this.codigo = codigo;

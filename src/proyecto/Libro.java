@@ -7,7 +7,7 @@ public class Libro extends Recurso {
     public Libro(String autor, int codigo, String nombre, String tipo) {
         super(codigo, nombre, tipo, false);
         this.autor = autor;
-        this.dias = 3; 
+        this.costo = 500; 
     }
 
     public String getAutor() {
