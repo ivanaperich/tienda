@@ -22,7 +22,8 @@ public class ArrendarLibro extends JFrame implements ActionListener {
     private JButton btnArrendar;
     private JButton btnVolver;
 
-    public ArrendarLibro() {
+    public ArrendarLibro(Tienda tienda) {
+        this.tienda = tienda;
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
 
@@ -44,7 +45,7 @@ public class ArrendarLibro extends JFrame implements ActionListener {
 
         panelSur.add(btnArrendar);
         panelSur.add(btnVolver);
-
+        this.setInformacion();
         this.add(panelSur, BorderLayout.SOUTH);
         this.add(scrollPane, BorderLayout.CENTER);
 

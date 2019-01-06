@@ -21,7 +21,8 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
     private JButton btnArrendar;
     private JButton btnVolver;
 
-    public ArrendarVideojuego() {
+    public ArrendarVideojuego(Tienda tienda) {
+        this.tienda = tienda;
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
 
@@ -43,7 +44,7 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
 
         panelSur.add(btnArrendar);
         panelSur.add(btnVolver);
-
+        this.setInformacion();
         this.add(panelSur, BorderLayout.SOUTH);
         this.add(scrollPane, BorderLayout.CENTER);
 

@@ -76,15 +76,15 @@ public class Tienda extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("libro")) {
-            arrendarLibro.setInformacion();
+            
             arrendarLibro.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("pelicula")) {
-            arrendarPelicula.setInformacion();
+            
             arrendarPelicula.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("videojuego")) {
-            arrendarVideojuego.setInformacion();
+            
             arrendarVideojuego.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {

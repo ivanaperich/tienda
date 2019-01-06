@@ -21,9 +21,9 @@ public class main {
         AgregarLibro agregarLibro = new AgregarLibro();
         AgregarPelicula agregarPelicula = new AgregarPelicula();
         AgregarVideojuego agregarVideojuego = new AgregarVideojuego();
-        ArrendarLibro arrendarLibro = new ArrendarLibro();
-        ArrendarPelicula arrendarPelicula = new ArrendarPelicula();
-        ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego();
+        ArrendarLibro arrendarLibro = new ArrendarLibro(tienda);
+        ArrendarPelicula arrendarPelicula = new ArrendarPelicula(tienda);
+        ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego(tienda);
         
         proyecto.agregarUsuario(usuAdmin);        
         login.setProyecto(proyecto);
