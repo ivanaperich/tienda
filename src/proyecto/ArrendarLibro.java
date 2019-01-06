@@ -22,8 +22,8 @@ public class ArrendarLibro extends JFrame implements ActionListener {
     private JButton btnArrendar;
     private JButton btnVolver;
 
-    public ArrendarLibro(Tienda tienda) {
-        this.tienda = tienda;
+    public ArrendarLibro() {
+        
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
 
@@ -45,7 +45,7 @@ public class ArrendarLibro extends JFrame implements ActionListener {
 
         panelSur.add(btnArrendar);
         panelSur.add(btnVolver);
-        this.setInformacion();
+        this.setTitle("Libros");
         this.add(panelSur, BorderLayout.SOUTH);
         this.add(scrollPane, BorderLayout.CENTER);
 
@@ -71,8 +71,8 @@ public class ArrendarLibro extends JFrame implements ActionListener {
         if (ae.getActionCommand().equals("arrendar")) {
             
         } else if (ae.getActionCommand().equals("volver")) {
-            this.setVisible(false);
             tienda.setVisible(true);
+            this.setVisible(false);            
         }
 
     }

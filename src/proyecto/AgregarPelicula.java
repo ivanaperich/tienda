@@ -15,7 +15,8 @@ public class AgregarPelicula extends JFrame implements ActionListener {
 
     private Tienda tienda;
     private PanelAdmin admin;
-
+    private ArrendarPelicula arrendarPelicula;
+    
     private JLabel lblCodigo;
     private JLabel lblNombre;
     private JLabel lblGenero;
@@ -75,7 +76,8 @@ public class AgregarPelicula extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
-            tienda.agregarPelicula(new Pelicula(txtGenero.getText(), Integer.parseInt(txtCodigo.getText()), txtNombre.getText(), "Pelicula"));            
+            tienda.agregarPelicula(new Pelicula(txtGenero.getText(), Integer.parseInt(txtCodigo.getText()), txtNombre.getText(), "Pelicula")); 
+            arrendarPelicula.setInformacion();
             JOptionPane.showMessageDialog(null, "Pelicula agregada", "Nueva Pelicula", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
             admin.setVisible(true);
@@ -94,6 +96,10 @@ public class AgregarPelicula extends JFrame implements ActionListener {
     public void setAdmin(PanelAdmin admin) {
         this.admin = admin;
     }   
+
+    public void setArrendarPelicula(ArrendarPelicula arrendarPelicula) {
+        this.arrendarPelicula = arrendarPelicula;
+    }
     
     
     public void limpiarDatos() {

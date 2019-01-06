@@ -21,8 +21,8 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
     private JButton btnArrendar;
     private JButton btnVolver;
 
-    public ArrendarVideojuego(Tienda tienda) {
-        this.tienda = tienda;
+    public ArrendarVideojuego() {
+      
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
 
@@ -41,10 +41,10 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
         btnVolver.setActionCommand("volver");
         btnArrendar.addActionListener(this);
         btnArrendar.setActionCommand("arrendar");
-
+        
         panelSur.add(btnArrendar);
         panelSur.add(btnVolver);
-        this.setInformacion();
+        this.setTitle("Videojuegos");
         this.add(panelSur, BorderLayout.SOUTH);
         this.add(scrollPane, BorderLayout.CENTER);
 
@@ -70,8 +70,8 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
         if (ae.getActionCommand().equals("arrendar")) {
 
         } else if (ae.getActionCommand().equals("volver")) {
-            this.setVisible(false);
             tienda.setVisible(true);
+            this.setVisible(false); 
         }
     }
 

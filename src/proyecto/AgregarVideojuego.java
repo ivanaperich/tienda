@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 public class AgregarVideojuego extends JFrame implements ActionListener{
     private Tienda tienda;
     private PanelAdmin admin;
+    private ArrendarVideojuego arrendarVideojuego;
 
     private JLabel lblCodigo;
     private JLabel lblNombre;
@@ -32,7 +33,7 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
     private JPanel panelSur;
 
     public AgregarVideojuego() {
-         lblCodigo = new JLabel("CODIGO: ");
+        lblCodigo = new JLabel("CODIGO: ");
         txtCodigo = new JTextField();
 
         lblNombre = new JLabel("NOMBRE: ");
@@ -77,6 +78,7 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
             tienda.agregarVideojuego(new Videojuego(txtDesarrollador.getText(), Integer.parseInt(txtCodigo.getText()), txtNombre.getText(), "Videojuego"));
+            arrendarVideojuego.setInformacion();
             JOptionPane.showMessageDialog(null, "Videojuego agregado", "Nuevo Videojuego", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
             admin.setVisible(true);
@@ -95,6 +97,11 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
     public void setAdmin(PanelAdmin admin) {
         this.admin = admin;
     }
+
+    public void setArrendarVideojuego(ArrendarVideojuego arrendarVideojuego) {
+        this.arrendarVideojuego = arrendarVideojuego;
+    }
+     
 
     public void limpiarDatos() {
         txtCodigo.setText("");

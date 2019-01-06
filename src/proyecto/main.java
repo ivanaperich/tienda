@@ -21,9 +21,9 @@ public class main {
         AgregarLibro agregarLibro = new AgregarLibro();
         AgregarPelicula agregarPelicula = new AgregarPelicula();
         AgregarVideojuego agregarVideojuego = new AgregarVideojuego();
-        ArrendarLibro arrendarLibro = new ArrendarLibro(tienda);
-        ArrendarPelicula arrendarPelicula = new ArrendarPelicula(tienda);
-        ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego(tienda);
+        ArrendarLibro arrendarLibro = new ArrendarLibro();
+        ArrendarPelicula arrendarPelicula = new ArrendarPelicula();
+        ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego();
         
         proyecto.agregarUsuario(usuAdmin);        
         login.setProyecto(proyecto);
@@ -41,10 +41,13 @@ public class main {
         
         agregarLibro.setTienda(tienda);
         agregarLibro.setAdmin(admin);
+        agregarLibro.setArrendarLibro(arrendarLibro);
         agregarPelicula.setTienda(tienda);
         agregarPelicula.setAdmin(admin);
+        agregarPelicula.setArrendarPelicula(arrendarPelicula);
         agregarVideojuego.setTienda(tienda);
         agregarVideojuego.setAdmin(admin);
+        agregarVideojuego.setArrendarVideojuego(arrendarVideojuego);
         arrendarLibro.setTienda(tienda);
         arrendarPelicula.setTienda(tienda);
         arrendarVideojuego.setTienda(tienda);

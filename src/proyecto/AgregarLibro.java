@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 public class AgregarLibro extends JFrame implements ActionListener {
 
     private Tienda tienda;
+    private ArrendarLibro arrendarLibro;
     private PanelAdmin admin;
 
     private JLabel lblCodigo;
@@ -76,6 +77,7 @@ public class AgregarLibro extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
             tienda.agregarLibro(new Libro(txtAutor.getText(), Integer.parseInt(txtCodigo.getText()), txtNombre.getText(), "Libro"));
+            arrendarLibro.setInformacion();
             JOptionPane.showMessageDialog(null, "Libro agregado", "Nuevo Libro", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
             admin.setVisible(true);
@@ -95,6 +97,11 @@ public class AgregarLibro extends JFrame implements ActionListener {
         this.admin = admin;
     }
 
+    public void setArrendarLibro(ArrendarLibro arrendarLibro) {
+        this.arrendarLibro = arrendarLibro;
+    }
+
+    
     public void limpiarDatos() {
         txtCodigo.setText("");
         txtNombre.setText("");
