@@ -12,6 +12,7 @@ public class Videojuego extends Recurso {
     public Videojuego(String desarrollador, int codigo, String nombre, String tipo) {
         super(codigo, nombre, tipo, false);
         this.desarrollador = desarrollador;
+        this.dias = 7; 
     }   
 
     public String getDesarrollador() {

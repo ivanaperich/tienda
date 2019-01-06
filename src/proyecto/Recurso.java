@@ -2,11 +2,12 @@
 package proyecto;
 
 
-public abstract class Recurso {
+public abstract class Recurso implements Prestable{
     private int codigo;
     private String nombre;
     private String tipo;
-    private boolean prestado;
+    private boolean prestado; 
+    protected int dias; 
 
     public Recurso(int codigo, String nombre, String tipo, boolean prestado) {
         this.codigo = codigo;
@@ -46,6 +47,26 @@ public abstract class Recurso {
     public void setPrestado(boolean prestado) {
         this.prestado = prestado;
     }
+
+    public int getDias() {
+        return dias;
+    }
+
+    public void setDias(int dias) {
+        this.dias = dias;
+    }
     
-    
+    @Override
+    public void prestar() {
+        if (this.prestado = false) {
+            this.prestado = true;
+        }
+    }
+
+    @Override
+    public void devolver() {
+        if (this.prestado == true) {
+            this.prestado = false;
+        }
+    }
 }
