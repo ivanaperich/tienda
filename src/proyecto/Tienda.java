@@ -16,6 +16,7 @@ public class Tienda extends JFrame implements ActionListener {
     ArrayList<Pelicula> peliculas = new ArrayList();
     ArrayList<Videojuego> videojuegos = new ArrayList();
     ArrayList<Libro> libros = new ArrayList();
+    ArrayList<Prestable> inventario = new ArrayList();
     private Login login;   
     private ArrendarLibro arrendarLibro;
     private ArrendarPelicula arrendarPelicula;
@@ -96,14 +97,17 @@ public class Tienda extends JFrame implements ActionListener {
     
     public void agregarPelicula (Pelicula p) {
         peliculas.add(p);
+        inventario.add(p); 
     }
     
     public void agregarVideojuego (Videojuego v) {
         videojuegos.add(v);
+        inventario.add(v); 
     }
     
     public void agregarLibro (Libro l) {
         libros.add(l);
+        inventario.add(l); 
     }
 
     public void setLogin(Login login) {
