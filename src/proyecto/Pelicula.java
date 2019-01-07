@@ -8,13 +8,17 @@ public class Pelicula extends Recurso {
 
     public Pelicula(String genero, int codigo, String nombre, String tipo) {
         super(codigo, nombre, tipo, false);
-        this.genero = genero;
-        this.costo = 1000; 
+        this.genero = genero;        
     }    
 
     @Override
     public String getGenero() {
         return genero;
+    }
+
+    @Override
+    public int getCosto() {
+        return 1000;
     }
     
     

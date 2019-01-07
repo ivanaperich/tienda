@@ -7,8 +7,7 @@ public class Videojuego extends Recurso {
 
     public Videojuego(String desarrollador, int codigo, String nombre, String tipo) {
         super(codigo, nombre, tipo, false);
-        this.desarrollador = desarrollador;
-        this.costo = 2000; 
+        this.desarrollador = desarrollador;    
 
     }   
 
@@ -16,6 +15,10 @@ public class Videojuego extends Recurso {
     public String getDesarrollador() {
         return desarrollador;
     }
-    
+
+    @Override
+    public int getCosto() {
+        return 2000;
+    }    
     
 }

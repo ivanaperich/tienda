@@ -18,6 +18,7 @@ public class PanelArriendo extends JFrame implements ActionListener {
     private ArrendarLibro arrendarLibro;
     private ArrendarPelicula arrendarPelicula;
     private ArrendarVideojuego arrendarVideojuego;
+    private String tipoRecurso;
 
     private JPanel panel;
     private JPanel panelNorte;
@@ -88,43 +89,43 @@ public class PanelArriendo extends JFrame implements ActionListener {
         if (ae.getActionCommand().equals("arrendar")) {
             Recurso recurso = tienda.buscarRecurso(Integer.parseInt(txtCodigo.getText()));
             int dias = Integer.parseInt(txtDias.getText());
-            if (recurso.isPrestado()) {
-                JOptionPane.showMessageDialog(null, "Producto ya prestado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            if (recurso.getCodigo() != Integer.parseInt(txtCodigo.getText()) || !recurso.getTipo().equals(tipoRecurso)) {
+                JOptionPane.showMessageDialog(null, "Codigo incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
-                if (recurso.getCodigo() == Integer.parseInt(txtCodigo.getText())) {
-                    tienda.eliminarRecurso(recurso);                    
+                if (!recurso.isPrestado()) {
+                    tienda.eliminarRecurso(recurso);
                     recurso.prestar();
-                    usuActual.setArriendo(new Arriendo(calcularCosto(dias), recurso, dias));                    
+                    usuActual.setArriendo(new Arriendo(calcularCosto(dias, recurso), recurso, dias));
                     tienda.agregarRecurso(recurso);
-                    //arrendarPelicula.setInformacion();
+                    arrendarPelicula.setInformacion();
                     arrendarLibro.setInformacion();
-                    //arrendarVideojuego.setInformacion();
-                    JOptionPane.showMessageDialog(null, "Recurso arrendado", "Arriendo realizado con éxito", JOptionPane.INFORMATION_MESSAGE);                    
+                    arrendarVideojuego.setInformacion();
+                    JOptionPane.showMessageDialog(null, "Recurso arrendado", "Arriendo realizado con éxito", JOptionPane.INFORMATION_MESSAGE);
                     this.setVisible(false);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Codigo incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }                
+                    JOptionPane.showMessageDialog(null, "Producto ya prestado", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
             }
             limpiarDatos();
         } else if (ae.getActionCommand().equals("costo")) {
+            Recurso recurso = tienda.buscarRecurso(Integer.parseInt(txtCodigo.getText()));
             int dias = Integer.parseInt(txtDias.getText());
-            txtCosto.setText(String.valueOf(calcularCosto(dias)));
+            txtCosto.setText(String.valueOf(calcularCosto(dias, recurso)));
         } else if (ae.getActionCommand().equals("cancelar")) {
             limpiarDatos();
             this.setVisible(false);
         }
     }
 
-    public int calcularCosto(int dias) {
-        return 1000 * dias;
+    public int calcularCosto(int dias, Recurso recurso) {
+        return recurso.getCosto() * dias;
     }
 
     public void limpiarDatos() {
         txtCodigo.setText("");
         txtDias.setText("");
         txtCosto.setText("");
-    }    
-    
+    }
 
     public void setTienda(Tienda tienda) {
         this.tienda = tienda;
@@ -133,7 +134,7 @@ public class PanelArriendo extends JFrame implements ActionListener {
     public void setUsuActual(Usuario usuActual) {
         this.usuActual = usuActual;
     }
-    
+
     public void setArrendarLibro(ArrendarLibro arrendarLibro) {
         this.arrendarLibro = arrendarLibro;
     }
@@ -145,5 +146,9 @@ public class PanelArriendo extends JFrame implements ActionListener {
     public void setArrendarVideojuego(ArrendarVideojuego arrendarVideojuego) {
         this.arrendarVideojuego = arrendarVideojuego;
     }
+
+    public void setTipoRecurso(String tipoRecurso) {
+        this.tipoRecurso = tipoRecurso;
+    }   
 
 }

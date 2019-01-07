@@ -79,6 +79,7 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("arrendar")) {
             arriendo.setUsuActual(usuActual);
+            arriendo.setTipoRecurso("Pelicula");
             arriendo.setVisible(true);
         } else if (ae.getActionCommand().equals("volver")) {
             tienda.setVisible(true);

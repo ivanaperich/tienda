@@ -57,7 +57,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         lblCorreo = new JLabel("CORREO: ");
         txtCorreo = new JTextField();
 
-        lblNacimiento = new JLabel("FECHA NACIMIENTO (dd/MM/yyy): ");
+        lblNacimiento = new JLabel("FECHA NACIMIENTO (dd/MM/yyyy): ");
         txtNacimiento = new JTextField();
 
         btnRegistrar = new JButton("Registrar");
@@ -89,7 +89,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         this.setTitle("Registrar Usuario");
         this.add(panel, BorderLayout.CENTER);
         this.add(panelSur, BorderLayout.SOUTH);
-        this.setSize(500, 500);
+        this.setSize(450, 400);
 
         btnRegistrar.addActionListener(this);
         btnRegistrar.setActionCommand("registrar");

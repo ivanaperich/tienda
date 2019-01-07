@@ -101,9 +101,9 @@ public class Usuario {
     public void setArriendo(Arriendo arriendo) {
         this.arriendos.add(arriendo);
     }
-    
-    
-    
-    
+
+    public List<Arriendo> getArriendos() {
+        return arriendos;
+    }    
     
 }

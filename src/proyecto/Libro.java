@@ -6,8 +6,7 @@ public class Libro extends Recurso {
 
     public Libro(String autor, int codigo, String nombre, String tipo) {
         super(codigo, nombre, tipo, false);
-        this.autor = autor;
-        this.costo = 500; 
+        this.autor = autor;    
 
     }
 
@@ -17,6 +16,11 @@ public class Libro extends Recurso {
     @Override
     public String getAutor() {
         return autor;
+    }
+
+    @Override
+    public int getCosto() {
+        return 500;
     }
 
     

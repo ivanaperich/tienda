@@ -63,7 +63,7 @@ public class AgregarPelicula extends JFrame implements ActionListener {
         this.setTitle("Agregar Pelicula");
         this.add(panel, BorderLayout.CENTER);
         this.add(panelSur, BorderLayout.SOUTH);
-        this.setSize(500, 500);
+        this.setSize(400, 300);
 
         btnAgregar.addActionListener(this);
         btnAgregar.setActionCommand("agregar");

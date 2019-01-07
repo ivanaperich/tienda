@@ -80,6 +80,7 @@ public class ArrendarLibro extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("arrendar")) {
             arriendo.setUsuActual(usuActual);
+            arriendo.setTipoRecurso("Libro");
             arriendo.setVisible(true);
         } else if (ae.getActionCommand().equals("volver")) {
             tienda.setVisible(true);

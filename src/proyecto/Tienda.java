@@ -17,6 +17,7 @@ public class Tienda extends JFrame implements ActionListener {
     private ArrendarLibro arrendarLibro;
     private ArrendarPelicula arrendarPelicula;
     private ArrendarVideojuego arrendarVideojuego;
+    private Biblioteca biblioteca;
     private JPanel panel;
     private JPanel panelNorte;
     private JPanel panelSur;
@@ -64,7 +65,7 @@ public class Tienda extends JFrame implements ActionListener {
         btnCerrar.setActionCommand("cerrar");
 
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override
@@ -81,6 +82,11 @@ public class Tienda extends JFrame implements ActionListener {
             arrendarVideojuego.setUsuActual(usuActual);
             arrendarVideojuego.setVisible(true);
             this.setVisible(false);
+        } else if (ae.getActionCommand().equals("biblioteca")) {
+            biblioteca.setUsuActual(usuActual);
+            biblioteca.setInformacion();
+            biblioteca.setVisible(true);
+            this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {
             panelNorte.removeAll();
             login.setVisible(true);
@@ -88,28 +94,28 @@ public class Tienda extends JFrame implements ActionListener {
         }
 
     }
-    
+
     public Recurso buscarRecurso(int codigo) {
         Recurso recurso = new Libro();
-        for(int i =0; i<inventario.size();i++) {
-            if(inventario.get(i).getCodigo() == codigo) {
+        for (int i = 0; i < inventario.size(); i++) {
+            if (inventario.get(i).getCodigo() == codigo) {
                 recurso = inventario.get(i);
             }
-        }        
+        }
         return recurso;
     }
-    
-    public void eliminarRecurso(Recurso recurso) {  
-        inventario.remove(recurso);               
-    }   
-    
-    public void agregarRecurso(Recurso recurso) {  
-        inventario.add(recurso);               
+
+    public void eliminarRecurso(Recurso recurso) {
+        inventario.remove(recurso);
+    }
+
+    public void agregarRecurso(Recurso recurso) {
+        inventario.add(recurso);
     }
 
     public ArrayList<Recurso> getInventario() {
         return inventario;
-    }    
+    }
 
     public void setLogin(Login login) {
         this.login = login;
@@ -123,7 +129,7 @@ public class Tienda extends JFrame implements ActionListener {
 
     public Usuario getUsuActual() {
         return usuActual;
-    }       
+    }
 
     public void setArrendarLibro(ArrendarLibro arrendarLibro) {
         this.arrendarLibro = arrendarLibro;
@@ -136,5 +142,9 @@ public class Tienda extends JFrame implements ActionListener {
     public void setArrendarVideojuego(ArrendarVideojuego arrendarVideojuego) {
         this.arrendarVideojuego = arrendarVideojuego;
     }
+
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
+    }    
 
 }

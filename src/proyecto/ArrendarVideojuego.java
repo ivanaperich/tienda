@@ -78,6 +78,7 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("arrendar")) {
             arriendo.setUsuActual(usuActual);
+            arriendo.setTipoRecurso("Videojuego");
             arriendo.setVisible(true);
         } else if (ae.getActionCommand().equals("volver")) {
             tienda.setVisible(true);

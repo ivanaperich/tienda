@@ -10,12 +10,12 @@ public class main {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
 
-        Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);        
-        Admin usuAdmin1 = new Admin("Ivana","Perich","20080278-0",20,"ivana1","i.perich01@ufromail.cl",fecha);
-        Admin usuAdmin2 = new Admin("Cesar","Matus","19863867-6",20,"cesar1","c.matus09@ufromail.cl",fecha);
-        
+        Admin usuAdmin = new Admin("Valentina","Garcia","200164695",20,"vale1","v.garcia06@ufromail.cl",fecha);        
+        Admin usuAdmin1 = new Admin("Ivana","Perich","200802780",20,"ivana1","i.perich01@ufromail.cl",fecha);
+        Admin usuAdmin2 = new Admin("Cesar","Matus","198638676",20,"cesar1","c.matus09@ufromail.cl",fecha);        
 
         Tienda tienda = new Tienda();
+        Biblioteca biblioteca = new Biblioteca();
         Proyecto proyecto = new Proyecto();
         Login login = new Login();
         RegistroUsuario registro = new RegistroUsuario();
@@ -69,6 +69,8 @@ public class main {
         tienda.setArrendarLibro(arrendarLibro);
         tienda.setArrendarPelicula(arrendarPelicula);
         tienda.setArrendarVideojuego(arrendarVideojuego);
+        tienda.setBiblioteca(biblioteca);
+        biblioteca.setTienda(tienda);
         login.setVisible(true);
         
         
