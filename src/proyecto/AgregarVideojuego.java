@@ -35,7 +35,8 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
     public AgregarVideojuego() {
         lblCodigo = new JLabel("CODIGO: ");
         txtCodigo = new JTextField();
-
+        txtCodigo.setEditable(false);
+        
         lblNombre = new JLabel("NOMBRE: ");
         txtNombre = new JTextField();
 
@@ -100,6 +101,10 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
 
     public void setArrendarVideojuego(ArrendarVideojuego arrendarVideojuego) {
         this.arrendarVideojuego = arrendarVideojuego;
+    }
+    
+    public void setCodigo() {
+        this.txtCodigo.setText(String.valueOf((tienda.videojuegos.size()+1)));
     }
      
 

@@ -3,6 +3,8 @@ package proyecto;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -16,6 +18,7 @@ public class Usuario {
     private String correo;    
     private LocalDate nacimiento; 
     private Boolean esAdmin;
+    private List<Arriendo> arriendos = new ArrayList<>();
 
     public Usuario() {
     }    
@@ -94,6 +97,11 @@ public class Usuario {
     public void setNacimiento(LocalDate nacimiento) {
         this.nacimiento = nacimiento;
     }
+
+    public void setArriendo(Arriendo arriendo) {
+        this.arriendos.add(arriendo);
+    }
+    
     
     
     

@@ -66,6 +66,7 @@ public class PanelAdmin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregarLibro")) {
+            agregarLibro.setCodigo();
             agregarLibro.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("agregarPelicula")) {

@@ -25,7 +25,7 @@ public class Login extends JFrame implements ActionListener {
     private JLabel lblContraseña;
 
     private JTextField txtRut;
-    private JTextField txtContraseña;
+    private JPasswordField txtContraseña;
 
     private JPanel panel;
     private JPanel panelSur;

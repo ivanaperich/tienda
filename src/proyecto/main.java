@@ -11,12 +11,13 @@ public class main {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
         Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);        
-        
+         
         Tienda tienda = new Tienda();
         Proyecto proyecto = new Proyecto();
         Login login = new Login();
         RegistroUsuario registro = new RegistroUsuario();
         PanelAdmin admin = new PanelAdmin();
+        PanelArriendo arriendo = new PanelArriendo();
         AgregarLibro agregarLibro = new AgregarLibro();
         AgregarPelicula agregarPelicula = new AgregarPelicula();
         AgregarVideojuego agregarVideojuego = new AgregarVideojuego();
@@ -24,7 +25,8 @@ public class main {
         ArrendarPelicula arrendarPelicula = new ArrendarPelicula();
         ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego();
         
-        proyecto.agregarUsuario(usuAdmin);        
+        proyecto.agregarUsuario(usuAdmin); 
+         
         login.setProyecto(proyecto);
         login.setRegistro(registro);
         login.setAdmin(admin);
@@ -38,6 +40,7 @@ public class main {
         admin.setAgregarVideojuego(agregarVideojuego);
         admin.setLogin(login);
         
+        arriendo.setTienda(tienda);
         agregarLibro.setTienda(tienda);
         agregarLibro.setAdmin(admin);
         agregarLibro.setArrendarLibro(arrendarLibro);
@@ -48,14 +51,18 @@ public class main {
         agregarVideojuego.setAdmin(admin);
         agregarVideojuego.setArrendarVideojuego(arrendarVideojuego);
         arrendarLibro.setTienda(tienda);
+        arrendarLibro.setArriendo(arriendo);
         arrendarPelicula.setTienda(tienda);
+        arrendarPelicula.setArriendo(arriendo);
         arrendarVideojuego.setTienda(tienda);
+        arrendarVideojuego.setArriendo(arriendo);
         
         tienda.setLogin(login);
         tienda.setArrendarLibro(arrendarLibro);
         tienda.setArrendarPelicula(arrendarPelicula);
         tienda.setArrendarVideojuego(arrendarVideojuego);
-        login.setVisible(true);              
+        login.setVisible(true);
+        
         
     }
 }

@@ -7,8 +7,8 @@ public abstract class Recurso implements Prestable{
     private String nombre;
     private String tipo;
     private boolean prestado; 
-    protected int dias; 
-
+    
+ 
     public Recurso(int codigo, String nombre, String tipo, boolean prestado) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -16,6 +16,9 @@ public abstract class Recurso implements Prestable{
         this.prestado = prestado;
     }
 
+    public Recurso() {
+    }
+    
     public int getCodigo() {
         return codigo;
     }
@@ -46,15 +49,7 @@ public abstract class Recurso implements Prestable{
 
     public void setPrestado(boolean prestado) {
         this.prestado = prestado;
-    }
-
-    public int getDias() {
-        return dias;
-    }
-
-    public void setDias(int dias) {
-        this.dias = dias;
-    }
+    }  
     
     @Override
     public void prestar() {

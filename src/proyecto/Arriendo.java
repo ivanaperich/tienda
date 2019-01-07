@@ -8,13 +8,13 @@ public class Arriendo {
     private LocalDateTime fechaInicio; 
     private LocalDateTime fechaFin; 
     private double costo; 
-    private Prestable prestable; 
+    private Recurso recurso; 
 
-    public Arriendo(double costo, Prestable objPrestable) {
-        this.prestable = objPrestable; 
+    public Arriendo(double costo, Recurso recurso, long dias) {
+        this.recurso = recurso; 
         this.costo = costo;
-        this.fechaInicio = LocalDateTime.now(); 
-        this.fechaFin = this.fechaInicio.plusDays(prestable.getDias());
+        this.fechaInicio = LocalDateTime.now();
+        this.fechaFin = fechaInicio.plusDays(dias);
     }
     
     

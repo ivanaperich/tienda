@@ -34,7 +34,8 @@ public class AgregarLibro extends JFrame implements ActionListener {
     public AgregarLibro() {
         lblCodigo = new JLabel("CODIGO: ");
         txtCodigo = new JTextField();
-
+        txtCodigo.setEditable(false);
+        
         lblNombre = new JLabel("NOMBRE: ");
         txtNombre = new JTextField();
 
@@ -101,6 +102,9 @@ public class AgregarLibro extends JFrame implements ActionListener {
         this.arrendarLibro = arrendarLibro;
     }
 
+    public void setCodigo() {
+        this.txtCodigo.setText(String.valueOf((tienda.libros.size()+1)));
+    }
     
     public void limpiarDatos() {
         txtCodigo.setText("");

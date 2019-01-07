@@ -34,6 +34,7 @@ public class AgregarPelicula extends JFrame implements ActionListener {
     public AgregarPelicula() {
         lblCodigo = new JLabel("CODIGO: ");
         txtCodigo = new JTextField();
+        txtCodigo.setEditable(false);
 
         lblNombre = new JLabel("NOMBRE: ");
         txtNombre = new JTextField();
@@ -101,6 +102,9 @@ public class AgregarPelicula extends JFrame implements ActionListener {
         this.arrendarPelicula = arrendarPelicula;
     }
     
+    public void setCodigo() {
+        this.txtCodigo.setText(String.valueOf((tienda.peliculas.size()+1)));
+    }
     
     public void limpiarDatos() {
         txtCodigo.setText("");

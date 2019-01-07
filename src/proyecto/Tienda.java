@@ -1,6 +1,7 @@
 package proyecto;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,7 @@ public class Tienda extends JFrame implements ActionListener {
     ArrayList<Pelicula> peliculas = new ArrayList();
     ArrayList<Videojuego> videojuegos = new ArrayList();
     ArrayList<Libro> libros = new ArrayList();
-    ArrayList<Prestable> inventario = new ArrayList();
+    ArrayList<Recurso> inventario = new ArrayList();
     private Usuario usuActual;
     private Login login;
     private ArrendarLibro arrendarLibro;
@@ -68,21 +69,21 @@ public class Tienda extends JFrame implements ActionListener {
         btnCerrar.setActionCommand("cerrar");
 
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("libro")) {
-
+            arrendarLibro.setUsuActual(usuActual);
             arrendarLibro.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("pelicula")) {
-
+            arrendarPelicula.setUsuActual(usuActual);
             arrendarPelicula.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("videojuego")) {
-
+            arrendarVideojuego.setUsuActual(usuActual);
             arrendarVideojuego.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {
@@ -92,6 +93,17 @@ public class Tienda extends JFrame implements ActionListener {
         }
 
     }
+    
+    public Recurso buscarRecurso(int codigo) {
+        Recurso recurso = new Libro();
+        for(int i =0; i<inventario.size();i++) {
+            if(inventario.get(i).getCodigo() == codigo) {
+                recurso = inventario.get(i);
+            }
+        }        
+        return recurso;
+    }
+    
 
     public void agregarPelicula(Pelicula p) {
         peliculas.add(p);

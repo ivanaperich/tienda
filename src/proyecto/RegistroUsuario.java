@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class RegistroUsuario extends JFrame implements ActionListener {
@@ -30,7 +31,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
     private JTextField txtNombre;
     private JTextField txtApellido;
 
-    private JTextField txtContraseña;
+    private JPasswordField txtContraseña;
     private JTextField txtCorreo;
     private JTextField txtNacimiento;
 
@@ -51,7 +52,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
         txtApellido = new JTextField();
 
         lblContraseña = new JLabel("CONTRASEÑA: ");
-        txtContraseña = new JTextField();
+        txtContraseña = new JPasswordField();
 
         lblCorreo = new JLabel("CORREO: ");
         txtCorreo = new JTextField();
@@ -109,6 +110,7 @@ public class RegistroUsuario extends JFrame implements ActionListener {
             this.setVisible(false);
             login.setVisible(true);
         } else if (ae.getActionCommand().equals("volver")) {
+            limpiarDatos();
             login.setVisible(true);
             this.setVisible(false);
         }

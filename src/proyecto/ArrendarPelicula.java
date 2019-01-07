@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 public class ArrendarPelicula extends JFrame implements ActionListener {
 
     private Tienda tienda;
+    private PanelArriendo arriendo;
+    private Usuario usuActual;
     private JTable tabla;
     private DefaultTableModel model;
     private JPanel panelSur;
@@ -22,7 +24,7 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
     private JButton btnVolver;
 
     public ArrendarPelicula() {
-       
+
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
 
@@ -70,15 +72,26 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("arrendar")) {
-
+            arriendo.setUsuActual(usuActual);
+            arriendo.setVisible(true);
         } else if (ae.getActionCommand().equals("volver")) {
-           tienda.setVisible(true);
-           this.setVisible(false); 
+            tienda.setVisible(true);
+            this.setVisible(false);
         }
     }
 
     public void setTienda(Tienda tienda) {
         this.tienda = tienda;
     }
+
+    public void setArriendo(PanelArriendo arriendo) {
+        this.arriendo = arriendo;
+    }
+
+    public void setUsuActual(Usuario usuActual) {
+        this.usuActual = usuActual;
+    }
+    
+    
 
 }
