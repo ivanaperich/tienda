@@ -70,9 +70,11 @@ public class PanelAdmin extends JFrame implements ActionListener {
             agregarLibro.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("agregarPelicula")) {
+            agregarPelicula.setCodigo();
             agregarPelicula.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("agregarVideojuego")) {
+            agregarVideojuego.setCodigo();
             agregarVideojuego.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("cerrar")) {

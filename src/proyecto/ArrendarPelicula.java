@@ -56,14 +56,20 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
 
     public void setInformacion() {
         model.setRowCount(0);
-        List<Pelicula> peliculas = tienda.getPeliculas();
-        for (int i = 0; i < peliculas.size(); i++) {
+        List<Recurso> inventario = tienda.getInventario();
+        for (int i = 0; i < inventario.size(); i++) {
             Object[] data = new Object[4];
-            data[0] = peliculas.get(i).getCodigo();
-            data[1] = peliculas.get(i).getNombre();
-            data[2] = peliculas.get(i).getGenero();
-            data[3] = peliculas.get(i).isPrestado();
-            model.addRow(data);
+            if (inventario.get(i).getTipo().equals("Pelicula")) {
+                data[0] = inventario.get(i).getCodigo();
+                data[1] = inventario.get(i).getNombre();
+                data[2] = inventario.get(i).getGenero();
+                if (inventario.get(i).isPrestado()) {
+                    data[3] = "SI";
+                } else {
+                    data[3] = "NO";
+                }
+                model.addRow(data);
+            }
         }
         tabla.setModel(model);
 
@@ -91,7 +97,5 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
     public void setUsuActual(Usuario usuActual) {
         this.usuActual = usuActual;
     }
-    
-    
 
 }

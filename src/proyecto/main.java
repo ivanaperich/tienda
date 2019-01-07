@@ -5,18 +5,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class main {
-        static Admin usuAdmin = null; 
+public class main {        
     public static void main(String[] args) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
 
         Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);        
-         
-
-        usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha); 
-        usuAdmin = new Admin("Ivana","Perich","20080278-0",20,"ivana1","i.perich01@ufromail.cl",fecha);
-        usuAdmin = new Admin("Cesar","Matus","19863867-6",20,"cesar1","c.matus09@ufromail.cl",fecha);
+        Admin usuAdmin1 = new Admin("Ivana","Perich","20080278-0",20,"ivana1","i.perich01@ufromail.cl",fecha);
+        Admin usuAdmin2 = new Admin("Cesar","Matus","19863867-6",20,"cesar1","c.matus09@ufromail.cl",fecha);
         
 
         Tienda tienda = new Tienda();
@@ -33,7 +29,9 @@ public class main {
         ArrendarVideojuego arrendarVideojuego = new ArrendarVideojuego();
         
         proyecto.agregarUsuario(usuAdmin); 
-         
+        proyecto.agregarUsuario(usuAdmin1); 
+        proyecto.agregarUsuario(usuAdmin2); 
+                
         login.setProyecto(proyecto);
         login.setRegistro(registro);
         login.setAdmin(admin);
@@ -48,6 +46,9 @@ public class main {
         admin.setLogin(login);
         
         arriendo.setTienda(tienda);
+        arriendo.setArrendarLibro(arrendarLibro);
+        arriendo.setArrendarPelicula(arrendarPelicula);
+        arriendo.setArrendarVideojuego(arrendarVideojuego);
         agregarLibro.setTienda(tienda);
         agregarLibro.setAdmin(admin);
         agregarLibro.setArrendarLibro(arrendarLibro);

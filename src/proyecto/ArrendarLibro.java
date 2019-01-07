@@ -25,15 +25,15 @@ public class ArrendarLibro extends JFrame implements ActionListener {
     private JButton btnVolver;
 
     public ArrendarLibro() {
-        
+
         this.setLayout(new BorderLayout());
         this.setSize(400, 400);
 
         String titulos[] = {"CODIGO", "NOMBRE", "AUTOR", "PRESTADO"};
         Object[][] datos = {};
         tabla = new JTable(new DefaultTableModel(datos, titulos));
-        tabla.setEnabled(false);    
-        
+        tabla.setEnabled(false);
+
         model = (DefaultTableModel) tabla.getModel();
         panelSur = new JPanel();
 
@@ -55,20 +55,23 @@ public class ArrendarLibro extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-     
 
     public void setInformacion() {
         model.setRowCount(0);
-        List<Libro> libros = tienda.getLibros();
-        for (int i = 0; i < libros.size(); i++) {
+        List<Recurso> inventario = tienda.getInventario();
+        for (int i = 0; i < inventario.size(); i++) {
             Object[] data = new Object[4];
-            data[0] = libros.get(i).getCodigo();
-            data[1] = libros.get(i).getNombre();
-            data[2] = libros.get(i).getAutor();
-            data[3] = libros.get(i).isPrestado();
-            model.addRow(data);
-           
+            if (inventario.get(i).getTipo().equals("Libro")) {
+                data[0] = inventario.get(i).getCodigo();
+                data[1] = inventario.get(i).getNombre();
+                data[2] = inventario.get(i).getAutor();
+                if (inventario.get(i).isPrestado()) {
+                    data[3] = "SI";
+                } else {
+                    data[3] = "NO";
+                }
+                model.addRow(data);
+            }
         }
         tabla.setModel(model);
     }
@@ -80,7 +83,7 @@ public class ArrendarLibro extends JFrame implements ActionListener {
             arriendo.setVisible(true);
         } else if (ae.getActionCommand().equals("volver")) {
             tienda.setVisible(true);
-            this.setVisible(false);            
+            this.setVisible(false);
         }
 
     }
@@ -95,8 +98,6 @@ public class ArrendarLibro extends JFrame implements ActionListener {
 
     public void setUsuActual(Usuario usuActual) {
         this.usuActual = usuActual;
-    } 
-    
-    
+    }
 
 }

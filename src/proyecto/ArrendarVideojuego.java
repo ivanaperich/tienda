@@ -56,14 +56,20 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
 
     public void setInformacion() {
         model.setRowCount(0);
-        List<Videojuego> videojuegos = tienda.getVideojuegos();
-        for (int i = 0; i < videojuegos.size(); i++) {
+        List<Recurso> inventario = tienda.getInventario();
+        for (int i = 0; i < inventario.size(); i++) {
             Object[] data = new Object[4];
-            data[0] = videojuegos.get(i).getCodigo();
-            data[1] = videojuegos.get(i).getNombre();
-            data[2] = videojuegos.get(i).getDesarrollador();
-            data[3] = videojuegos.get(i).isPrestado();
-            model.addRow(data);
+            if (inventario.get(i).getTipo().equals("Videojuego")) {
+                data[0] = inventario.get(i).getCodigo();
+                data[1] = inventario.get(i).getNombre();
+                data[2] = inventario.get(i).getDesarrollador();
+                if (inventario.get(i).isPrestado()) {
+                    data[3] = "SI";
+                } else {
+                    data[3] = "NO";
+                }
+                model.addRow(data);
+            }
         }
         tabla.setModel(model);
     }
@@ -89,6 +95,6 @@ public class ArrendarVideojuego extends JFrame implements ActionListener {
 
     public void setUsuActual(Usuario usuActual) {
         this.usuActual = usuActual;
-    }  
-    
+    }
+
 }

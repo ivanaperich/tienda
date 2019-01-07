@@ -78,7 +78,7 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
-            tienda.agregarVideojuego(new Videojuego(txtDesarrollador.getText(), (tienda.inventario.size()+1), txtNombre.getText(), "Videojuego"));
+            tienda.agregarRecurso(new Videojuego(txtDesarrollador.getText(), (tienda.inventario.size()+1), txtNombre.getText(), "Videojuego"));
             arrendarVideojuego.setInformacion();
             JOptionPane.showMessageDialog(null, "Videojuego agregado", "Nuevo Videojuego", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
@@ -104,7 +104,7 @@ public class AgregarVideojuego extends JFrame implements ActionListener{
     }
     
     public void setCodigo() {
-        this.txtCodigo.setText(String.valueOf((tienda.videojuegos.size()+1)));
+        this.txtCodigo.setText(String.valueOf((tienda.inventario.size()+1)));
     }
      
 

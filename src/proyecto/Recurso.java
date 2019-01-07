@@ -6,7 +6,8 @@ public abstract class Recurso implements Prestable{
     private int codigo;
     private String nombre;
     private String tipo;
-    private boolean prestado;    
+    private boolean prestado; 
+    protected int costo;
 
 
     public Recurso(int codigo, String nombre, String tipo, boolean prestado) {
@@ -51,13 +52,23 @@ public abstract class Recurso implements Prestable{
         this.prestado = prestado;
 
     }   
-
     
+    public String getAutor() {
+        return "";
+    }  
+    
+    public String getDesarrollador() {
+        return "";
+    } 
+    
+    public String getGenero() {
+        return "";
+    }  
 
     
     @Override
     public void prestar() {
-        if (this.prestado = false) {
+        if (this.prestado == false) {
             this.prestado = true;
         }
     }

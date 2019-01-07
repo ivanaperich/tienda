@@ -77,7 +77,7 @@ public class AgregarPelicula extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
-            tienda.agregarPelicula(new Pelicula(txtGenero.getText(), (tienda.inventario.size()+1), txtNombre.getText(), "Pelicula")); 
+            tienda.agregarRecurso(new Pelicula(txtGenero.getText(), (tienda.inventario.size()+1), txtNombre.getText(), "Pelicula")); 
             arrendarPelicula.setInformacion();
             JOptionPane.showMessageDialog(null, "Pelicula agregada", "Nueva Pelicula", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
@@ -103,7 +103,7 @@ public class AgregarPelicula extends JFrame implements ActionListener {
     }
     
     public void setCodigo() {
-        this.txtCodigo.setText(String.valueOf((tienda.peliculas.size()+1)));
+        this.txtCodigo.setText(String.valueOf((tienda.inventario.size()+1)));
     }
     
     public void limpiarDatos() {

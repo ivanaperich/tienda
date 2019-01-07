@@ -1,8 +1,6 @@
 package proyecto;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -13,9 +11,6 @@ import javax.swing.JPanel;
 
 public class Tienda extends JFrame implements ActionListener {
 
-    ArrayList<Pelicula> peliculas = new ArrayList();
-    ArrayList<Videojuego> videojuegos = new ArrayList();
-    ArrayList<Libro> libros = new ArrayList();
     ArrayList<Recurso> inventario = new ArrayList();
     private Usuario usuActual;
     private Login login;
@@ -104,21 +99,17 @@ public class Tienda extends JFrame implements ActionListener {
         return recurso;
     }
     
-
-    public void agregarPelicula(Pelicula p) {
-        peliculas.add(p);
-        inventario.add(p);
+    public void eliminarRecurso(Recurso recurso) {  
+        inventario.remove(recurso);               
+    }   
+    
+    public void agregarRecurso(Recurso recurso) {  
+        inventario.add(recurso);               
     }
 
-    public void agregarVideojuego(Videojuego v) {
-        videojuegos.add(v);
-        inventario.add(v);
-    }
-
-    public void agregarLibro(Libro l) {
-        libros.add(l);
-        inventario.add(l);
-    }
+    public ArrayList<Recurso> getInventario() {
+        return inventario;
+    }    
 
     public void setLogin(Login login) {
         this.login = login;
@@ -132,19 +123,7 @@ public class Tienda extends JFrame implements ActionListener {
 
     public Usuario getUsuActual() {
         return usuActual;
-    }   
-
-    public ArrayList<Pelicula> getPeliculas() {
-        return peliculas;
-    }
-
-    public ArrayList<Videojuego> getVideojuegos() {
-        return videojuegos;
-    }
-
-    public ArrayList<Libro> getLibros() {
-        return libros;
-    }
+    }       
 
     public void setArrendarLibro(ArrendarLibro arrendarLibro) {
         this.arrendarLibro = arrendarLibro;
