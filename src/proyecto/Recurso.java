@@ -56,6 +56,14 @@ public abstract class Recurso implements Prestable{
     public void setDias(int dias) {
         this.dias = dias;
     }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
+    }
     
     @Override
     public void prestar() {
