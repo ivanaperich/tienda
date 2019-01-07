@@ -6,12 +6,19 @@ import java.time.format.DateTimeFormatter;
 
 
 public class main {
-
+        static Admin usuAdmin = null; 
     public static void main(String[] args) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
+
         Admin usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha);        
          
+
+        usuAdmin = new Admin("Valentina","Garcia","20016469-5",20,"vale1","v.garcia06@ufromail.cl",fecha); 
+        usuAdmin = new Admin("Ivana","Perich","20080278-0",20,"ivana1","i.perich01@ufromail.cl",fecha);
+        usuAdmin = new Admin("Cesar","Matus","19863867-6",20,"cesar1","c.matus09@ufromail.cl",fecha);
+        
+
         Tienda tienda = new Tienda();
         Proyecto proyecto = new Proyecto();
         Login login = new Login();
