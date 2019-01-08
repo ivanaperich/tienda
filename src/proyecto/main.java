@@ -10,7 +10,7 @@ public class main {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fecha = LocalDate.parse("12/07/1998", formato); 
 
-        Admin usuAdmin = new Admin("Valentina","Garcia","200164695",20,"vale1","v.garcia06@ufromail.cl",fecha);        
+        Admin usuAdmin = new Admin("Valentina","García","200164695",20,"vale1","v.garcia06@ufromail.cl",fecha);        
         Admin usuAdmin1 = new Admin("Ivana","Perich","200802780",20,"ivana1","i.perich01@ufromail.cl",fecha);
         Admin usuAdmin2 = new Admin("Cesar","Matus","198638676",20,"cesar1","c.matus09@ufromail.cl",fecha);        
 
