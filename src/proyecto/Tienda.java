@@ -72,14 +72,17 @@ public class Tienda extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("libro")) {
             arrendarLibro.setUsuActual(usuActual);
+            arrendarLibro.setInformacion();
             arrendarLibro.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("pelicula")) {
             arrendarPelicula.setUsuActual(usuActual);
+            arrendarPelicula.setInformacion();
             arrendarPelicula.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("videojuego")) {
             arrendarVideojuego.setUsuActual(usuActual);
+            arrendarVideojuego.setInformacion();
             arrendarVideojuego.setVisible(true);
             this.setVisible(false);
         } else if (ae.getActionCommand().equals("biblioteca")) {
@@ -145,6 +148,6 @@ public class Tienda extends JFrame implements ActionListener {
 
     public void setBiblioteca(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
-    }    
+    }
 
 }

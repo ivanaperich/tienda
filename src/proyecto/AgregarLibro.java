@@ -13,8 +13,7 @@ import javax.swing.JTextField;
 
 public class AgregarLibro extends JFrame implements ActionListener {
 
-    private Tienda tienda;
-    private ArrendarLibro arrendarLibro;
+    private Tienda tienda;    
     private PanelAdmin admin;
 
     private JLabel lblCodigo;
@@ -78,7 +77,7 @@ public class AgregarLibro extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("agregar")) {
             tienda.agregarRecurso(new Libro(txtAutor.getText(), (tienda.inventario.size()+1), txtNombre.getText(), "Libro"));
-            arrendarLibro.setInformacion();
+            
             JOptionPane.showMessageDialog(null, "Libro agregado", "Nuevo Libro", JOptionPane.INFORMATION_MESSAGE);
             limpiarDatos();
             admin.setVisible(true);
@@ -96,11 +95,7 @@ public class AgregarLibro extends JFrame implements ActionListener {
 
     public void setAdmin(PanelAdmin admin) {
         this.admin = admin;
-    }
-
-    public void setArrendarLibro(ArrendarLibro arrendarLibro) {
-        this.arrendarLibro = arrendarLibro;
-    }
+    }   
 
     public void setCodigo() {
         this.txtCodigo.setText(String.valueOf((tienda.inventario.size()+1)));

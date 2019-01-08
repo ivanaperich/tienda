@@ -51,13 +51,13 @@ public class main {
         arriendo.setArrendarVideojuego(arrendarVideojuego);
         agregarLibro.setTienda(tienda);
         agregarLibro.setAdmin(admin);
-        agregarLibro.setArrendarLibro(arrendarLibro);
+        
         agregarPelicula.setTienda(tienda);
         agregarPelicula.setAdmin(admin);
-        agregarPelicula.setArrendarPelicula(arrendarPelicula);
+        
         agregarVideojuego.setTienda(tienda);
         agregarVideojuego.setAdmin(admin);
-        agregarVideojuego.setArrendarVideojuego(arrendarVideojuego);
+        
         arrendarLibro.setTienda(tienda);
         arrendarLibro.setArriendo(arriendo);
         arrendarPelicula.setTienda(tienda);
