@@ -61,14 +61,14 @@ public class Biblioteca extends JFrame implements ActionListener {
         model.setRowCount(0);
         List<Arriendo> arriendos = usuActual.getArriendos();
         for (int i = 0; i < arriendos.size(); i++) {
-            Object[] data = new Object[6];
-            data[0] = arriendos.get(i).getRecurso().getTipo();
-            data[1] = arriendos.get(i).getRecurso().getCodigo();
-            data[2] = arriendos.get(i).getRecurso().getNombre();
-            data[3] = arriendos.get(i).getFechaInicio().format(formato);
-            data[4] = arriendos.get(i).getFechaFin().format(formato);
-            data[5] = arriendos.get(i).getCosto();
-            model.addRow(data);
+            Object[] datos = new Object[6];
+            datos[0] = arriendos.get(i).getRecurso().getTipo();
+            datos[1] = arriendos.get(i).getRecurso().getCodigo();
+            datos[2] = arriendos.get(i).getRecurso().getNombre();
+            datos[3] = arriendos.get(i).getFechaInicio().format(formato);
+            datos[4] = arriendos.get(i).getFechaFin().format(formato);
+            datos[5] = arriendos.get(i).getCosto();
+            model.addRow(datos);
         }
         tabla.setModel(model);
     }

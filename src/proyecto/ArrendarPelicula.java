@@ -58,17 +58,17 @@ public class ArrendarPelicula extends JFrame implements ActionListener {
         model.setRowCount(0);
         List<Recurso> inventario = tienda.getInventario();
         for (int i = 0; i < inventario.size(); i++) {
-            Object[] data = new Object[4];
+            Object[] datos = new Object[4];
             if (inventario.get(i).getTipo().equals("Pelicula")) {
-                data[0] = inventario.get(i).getCodigo();
-                data[1] = inventario.get(i).getNombre();
-                data[2] = inventario.get(i).getGenero();
+                datos[0] = inventario.get(i).getCodigo();
+                datos[1] = inventario.get(i).getNombre();
+                datos[2] = inventario.get(i).getGenero();
                 if (inventario.get(i).isPrestado()) {
-                    data[3] = "SI";
+                    datos[3] = "SI";
                 } else {
-                    data[3] = "NO";
+                    datos[3] = "NO";
                 }
-                model.addRow(data);
+                model.addRow(datos);
             }
         }
         tabla.setModel(model);
